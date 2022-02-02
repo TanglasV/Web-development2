@@ -1,2 +1,2 @@
 # Web-development2
-My 2nd Website
+gh-pages branch contains my second website.
