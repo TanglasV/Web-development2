@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Register</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">	<!-- Linking the CSS file -->
+	<script type="text/javascript" src="js/script.js"></script>		<!-- Linking the JS file -->
+</head>
+<!-- putting an ID in the body tag to help highlight the current page in nav menu -->
+<body id="register">
+	<header><h1>Register</h1></header>
+<!-- Adding the nav menu and classifying them accordingly -->
+<nav>
+	<ul>
+		<li class="index"><a href="index.html">Home</a></li>
+		<li class="register"><a href="register.html">Register</a></li>
+		<li class="order"><a href="order.html">Order</a></li>
+		<li class="features"><a href="features.html">Features</a></li>
+	</ul>
+</nav>
+<main>
+	<!-- Adding register form -->
+	<form id="regform" method="post" action="http://mercury.swin.edu.au/it000000/cos10005/regtest.php">
+		<div class="label"><label for="Uname">Enter Username:*</label></div>
+		 <input type="text" id="Uname" name="Uname" required><br>
+		<div class="label"><label for="pass">Enter Password:*</label></div>
+		 <input type="password" id="pass" name="pass" required><br>
+		<div class="label"><label>Gender:</label></div>
+		 <input type="radio" name="gender" value="F">F
+		 <input type="radio" name="gender" value="M">M<br>
+		<div class="label"><label for="email">E-mail:*</label></div>
+		 <input type="email" id="email" name="email" placeholder="ab12@example.com" required><br>
+		<div class="label" id="favpizza"><label>Favourite Pizza:</label></div>
+		 <input type="checkbox" name="favpizza[]" value="siciliano">Pizza Siciliano
+		 <input type="checkbox" name="favpizza[]" value="margherita">Pizza Margherita
+		 <input type="checkbox" name="favpizza[]" value="mediterranea">Pizza Mediterranea<br>
+		 <div id="complete"><input type="reset" class="button" value="Clear">
+		 <input type="submit" class="button" value="Submit"></div>
+	</form>
+</main>
+<footer>All Rights Reserved by Bruno Pizzaria</footer>
+<!-- Adding javascript function to control password length -->
+<script type="text/javascript">
+	function validateRegForm() {
+	var pass = document.getElementById("pass").value;
+	var passLen = pass.length;
+	var errMsg = "";
+	var result = true;
+	if (passLen < 8) {
+		errMsg += "Password must be of at least 8 character\n";
+	}
+	if (errMsg != "") {
+		alert (errMsg);
+		result = false;
+	} 
+	return result;
+}
+function initReg () {
+	var regForm = document.getElementById("regform");
+	regForm.onsubmit = validateRegForm;
+}
+window.onload = initReg;
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Order</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">	<!-- Linking the CSS file -->
+	<script type="text/javascript" src="js/script.js"></script>		<!-- Linking the JS file -->
+</head>
+<!-- putting an ID in the body tag to help highlight the current page in nav menu -->
+<body id="order">
+	<header><h1>Order</h1></header>
+<!-- Adding the nav menu and classifying them accordingly -->
+<nav>
+	<ul>
+		<li class="index"><a href="index.html">Home</a></li>
+		<li class="register"><a href="register.html">Register</a></li>
+		<li class="order"><a href="order.html">Order</a></li>
+		<li class="features"><a href="features.html">Features</a></li>
+	</ul>
+</nav>
+<main>
+	<!-- Adding order form -->
+	<form id="orderform" method="post" action="http://mercury.swin.edu.au/it000000/cos10005/regtest.php">
+		<div class="label"><label>Order type:*</label></div>
+			<input type="radio" id="delivery" name="Otype" value="delivery" onclick="showDeliveryAd()">Delivery
+			<input type="radio" id="pickup" name="Otype" value="pickup" onclick="hideDeliveryAd()">Pickup
+			<br>
+		<div id="dad">
+			<div class="label"><label>Delivery Address:</label></div>
+			<br>
+			<div class="collapse">
+				<div class="label"><label>Street Address:*</label></div>
+				<input type="text" id="dStreetAddress" name="delivery-Street-address"><br>
+				<div class="label"><label>Postcode:*</label></div>
+				<input type="number" id="Dpostcode" name="Dpostcode"><br>
+			</div>
+		</div>
+		<div class="label"><label>Billing address:</label></div>
+			<div class="collapse">
+				<div class="label"><label>Street Address:*</label></div>
+				<input type="text" id="bStreetAddress" name="bill-Street-address"><br>
+				<div class="label"><label>Postcode:*</label></div>
+				<input type="number" id="Bpostcode" name="Bpostcode"><br>
+				<input type="checkbox" id="sameAs" name="check" value="same-as-delivery-address" onclick="colData()">Same as delivery address
+			</div>
+			<br>
+		<div class="label"><label for="contact">Contact Number:*</label></div>
+			<input type="number" id="contact" name="contact">
+			<br>
+		<div class="label"><label for="mail">Email for Receipt:*</label></div>
+			<input type="email" id="mail" name="mail" placeholder="ab12@example.com">
+			<br>
+		<div class="label"><label>Payment type:*</label></div>
+			<input type="radio" id="Opay" name="Ptype" value="online" onclick="showCred()">Online
+			<input type="radio" id="Ppay" name="Ptype" value="pickup" onclick="hideCred()">On Pickup
+			<br>
+		<div id="cardInfo">
+			<div class="label"><label>Card type:*</label></div>
+			<input type="radio" id="visa" name="Ctype" value="visa" onclick="clickVisa()">Visa
+			<input type="radio" id="mastercard" name="Ctype" value="mastercard" onclick="clickMcard()">MasterCard
+			<input type="radio" id="aexpress" name="Ctype" value="american-express" onclick="clickAexpress()">American Express
+		 	<div class="label" id="card"><label for="credentials">Card number:*</label></div>
+			<input type="text" id="credentials" name="credentials" pattern="[0-9]+" placeholder="Input numbers only">
+		</div>
+			<br>
+		<div id="complete"> 
+			<input type="reset" class="button" value="Clear">
+			<input type="submit" class="button" value="Submit">
+		</div>
+	</form>
+</main>
+<aside>
+	<!-- Adding review form -->
+	<form method="post" action="http://mercury.swin.edu.au/it000000/cos10005/regtest.php">
+		<label for="rating">On a scale of 1-10, how much do you like our pizza?</label><br>
+		<select id="rating" name="rating">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br>
+		<input type="submit" class="button" value="Send">
+	</form>	
+</aside>
+<footer>All Rights Reserved by Bruno Pizzaria</footer>
+</body>
+</html>
